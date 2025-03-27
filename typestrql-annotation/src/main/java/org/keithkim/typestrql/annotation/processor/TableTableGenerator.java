@@ -1,10 +1,10 @@
-package org.keithkim.safeql.annotation.processor;
+package org.keithkim.typestrql.annotation.processor;
 
 import com.google.common.base.CaseFormat;
 import com.squareup.javapoet.*;
-import org.keithkim.moja.util.Tuple.Pair;
-import org.keithkim.safeql.annotation.Column;
-import org.keithkim.safeql.annotation.Table;
+import org.keithkim.moja.util.Pair;
+import org.keithkim.typestrql.annotation.Column;
+import org.keithkim.typestrql.annotation.Table;
 
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
@@ -32,7 +32,7 @@ public class TableTableGenerator {
     }
 
     public ProcessorError add(VariableElement element, Column columnAnnotation) {
-        fields.put(element.getSimpleName().toString(), Pair.of(element, columnAnnotation));
+        fields.put(element.getSimpleName().toString(), Pair.make(element, columnAnnotation));
         return null;
     }
 
@@ -45,7 +45,7 @@ public class TableTableGenerator {
             tableName = CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, simpleName);
         }
 
-        ClassName safeqlTableClassName = ClassName.get("org.keithkim.safeql.schema", "Table");
+        ClassName safeqlTableClassName = ClassName.get("org.keithkim.typestrql.schema", "Table");
 
         TypeName tableEntity = ParameterizedTypeName.get(safeqlTableClassName, entityClassName);
         TypeSpec.Builder tableClassBuilder = TypeSpec.classBuilder("Table")
@@ -80,7 +80,7 @@ public class TableTableGenerator {
                 typeParam = ClassName.get(packageName, typeString);
             }
 
-            ClassName safeqlColumnClassName = ClassName.get("org.keithkim.safeql.schema", "Table.SqlColumn");
+            ClassName safeqlColumnClassName = ClassName.get("org.keithkim.typestrql.schema", "Table.SqlColumn");
             TypeName columnTypeName = ParameterizedTypeName.get(safeqlColumnClassName, typeParam);
 
             TypeSpec columnClassType = TypeSpec.classBuilder(ClassName.get(packageName, colClassName))

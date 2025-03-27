@@ -1,4 +1,4 @@
-package org.keithkim.safeql.annotation;
+package org.keithkim.typestrql.annotation;
 
 public enum ColumnOption {
     PRIMARY_KEY,

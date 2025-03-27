@@ -1,4 +1,4 @@
-package org.keithkim.safeql.annotation;
+package org.keithkim.typestrql.annotation;
 
 import java.util.Collection;
 import java.util.StringJoiner;

@@ -1,11 +1,11 @@
-package org.keithkim.safeql.annotation.processor;
+package org.keithkim.typestrql.annotation.processor;
 
 import com.google.common.base.CaseFormat;
 import com.squareup.javapoet.*;
-import org.keithkim.moja.util.Tuple.Pair;
-import org.keithkim.safeql.annotation.Column;
-import org.keithkim.safeql.annotation.Table;
-import org.keithkim.safeql.annotation.Utils;
+import org.keithkim.moja.util.Pair;
+import org.keithkim.typestrql.annotation.Column;
+import org.keithkim.typestrql.annotation.Table;
+import org.keithkim.typestrql.annotation.Utils;
 
 import javax.lang.model.element.Element;
 import javax.lang.model.element.Modifier;
@@ -17,8 +17,8 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static java.util.Arrays.asList;
-import static org.keithkim.safeql.annotation.processor.ClassNames.*;
-import static org.keithkim.safeql.annotation.Utils.trimSuffix;
+import static org.keithkim.typestrql.annotation.processor.ClassNames.*;
+import static org.keithkim.typestrql.annotation.Utils.trimSuffix;
 
 public class TableEntityGenerator {
     private final ClassName entityClassName;
@@ -41,7 +41,7 @@ public class TableEntityGenerator {
     }
 
     public ProcessorError addColumn(VariableElement element, Column columnAnnotation) {
-        fields.put(element.getSimpleName().toString(), Pair.of(element, columnAnnotation));
+        fields.put(element.getSimpleName().toString(), Pair.make(element, columnAnnotation));
         return null;
     }
 
@@ -59,7 +59,7 @@ public class TableEntityGenerator {
         String packageName = entityClassName.packageName();
         String simpleName = entityClassName.simpleName();
 
-        TypeName superClass = ParameterizedTypeName.get(ClassName.get("org.keithkim.safeql.schema", "Entity"), longClassName());
+        TypeName superClass = ParameterizedTypeName.get(ClassName.get("org.keithkim.typestrql.schema", "Entity"), longClassName());
         TypeSpec.Builder entityClassBuilder = TypeSpec.classBuilder(simpleName)
                 .addModifiers(Modifier.PUBLIC)
                 .superclass(superClass);

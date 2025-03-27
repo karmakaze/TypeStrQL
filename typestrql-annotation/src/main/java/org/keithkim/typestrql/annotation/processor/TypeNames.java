@@ -1,8 +1,8 @@
-package org.keithkim.safeql.annotation.processor;
+package org.keithkim.typestrql.annotation.processor;
 
 import com.squareup.javapoet.ClassName;
 
-import static org.keithkim.safeql.annotation.Utils.splitOnLast;
+import static org.keithkim.typestrql.annotation.Utils.splitOnLast;
 
 public class TypeNames {
     public static ClassName forTypeString(String typeString, String defaultPackageName) {

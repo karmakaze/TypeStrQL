@@ -1,8 +1,8 @@
-package org.keithkim.safeql.annotation.processor;
+package org.keithkim.typestrql.annotation.processor;
 
 import com.google.auto.service.AutoService;
-import org.keithkim.safeql.annotation.Column;
-import org.keithkim.safeql.annotation.Table;
+import org.keithkim.typestrql.annotation.Column;
+import org.keithkim.typestrql.annotation.Table;
 
 import java.util.LinkedHashSet;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package org.keithkim.safeql.annotation.processor;
+package org.keithkim.typestrql.annotation.processor;
 
 import javax.lang.model.element.Element;
 

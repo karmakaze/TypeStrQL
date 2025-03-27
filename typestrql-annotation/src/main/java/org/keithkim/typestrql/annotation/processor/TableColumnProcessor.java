@@ -1,10 +1,10 @@
-package org.keithkim.safeql.annotation.processor;
+package org.keithkim.typestrql.annotation.processor;
 
 import com.squareup.javapoet.ClassName;
-import org.keithkim.moja.util.Tuple.Pair;
-import org.keithkim.moja.util.Tuple.Triple;
-import org.keithkim.safeql.annotation.Column;
-import org.keithkim.safeql.annotation.Table;
+import org.keithkim.moja.util.Pair;
+import org.keithkim.moja.util.Triple;
+import org.keithkim.typestrql.annotation.Column;
+import org.keithkim.typestrql.annotation.Table;
 
 import javax.lang.model.element.Element;
 import javax.lang.model.element.ElementKind;
@@ -14,8 +14,8 @@ import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.util.*;
 
-import static org.keithkim.safeql.annotation.Utils.splitOnLast;
-import static org.keithkim.safeql.annotation.Utils.trimSuffix;
+import static org.keithkim.typestrql.annotation.Utils.splitOnLast;
+import static org.keithkim.typestrql.annotation.Utils.trimSuffix;
 
 public class TableColumnProcessor {
     private final Processor.Context ctx;
@@ -74,7 +74,7 @@ public class TableColumnProcessor {
         TableTableGenerator tableGeneratedClass = new TableTableGenerator(qualifiedName, typeElement, tableAnnotation);
         TableRowGenerator rowClass = new TableRowGenerator(qualifiedName + "Row", typeElement, tableAnnotation);
         Triple<TableEntityGenerator, TableTableGenerator, TableRowGenerator> triple =
-                Triple.of(entityGeneratedClass, tableGeneratedClass, rowClass);
+                Triple.make(entityGeneratedClass, tableGeneratedClass, rowClass);
         entityTableRows.put(qualifiedName, triple);
         return null;
     }
@@ -108,7 +108,7 @@ public class TableColumnProcessor {
                 if (generators != null) {
                     TableEntityGenerator entityGenerator = generators.value1();
                     ClassName refClassName = ClassName.get(refPackageName, refSimpleName);
-                    entityGenerator.addParentRelation(refClassName, Pair.of(columnElement, columnAnnotation));
+                    entityGenerator.addParentRelation(refClassName, Pair.make(columnElement, columnAnnotation));
                 }
             }
         }

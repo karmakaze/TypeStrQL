@@ -1,9 +1,9 @@
-package org.keithkim.safeql.annotation.processor;
+package org.keithkim.typestrql.annotation.processor;
 
 import com.squareup.javapoet.*;
-import org.keithkim.moja.util.Tuple.Pair;
-import org.keithkim.safeql.annotation.Column;
-import org.keithkim.safeql.annotation.Table;
+import org.keithkim.moja.util.Pair;
+import org.keithkim.typestrql.annotation.Column;
+import org.keithkim.typestrql.annotation.Table;
 
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
@@ -31,7 +31,7 @@ public class TableRowGenerator {
     }
 
     public ProcessorError add(VariableElement element, Column columnAnnotation) {
-        fields.put(element.getSimpleName().toString(), Pair.of(element, columnAnnotation));
+        fields.put(element.getSimpleName().toString(), Pair.make(element, columnAnnotation));
         return null;
     }
 
