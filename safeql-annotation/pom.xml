@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.keithkim</groupId>
-    <artifactId>safeql-annotation</artifactId>
+    <artifactId>typestrql-annotation</artifactId>
     <version>0.2-SNAPSHOT</version>
 
     <parent>
         <groupId>org.keithkim</groupId>
-        <artifactId>safeql-parent</artifactId>
+        <artifactId>typestrql-parent</artifactId>
         <version>0.2-SNAPSHOT</version>
     </parent>
 

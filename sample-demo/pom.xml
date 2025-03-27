@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.keithkim</groupId>
-    <artifactId>safeql-sample</artifactId>
+    <artifactId>typestrql-sample</artifactId>
     <version>0.2-SNAPSHOT</version>
 
     <parent>
         <groupId>org.keithkim</groupId>
-        <artifactId>safeql-parent</artifactId>
+        <artifactId>typestrql-parent</artifactId>
         <version>0.2-SNAPSHOT</version>
     </parent>
 
@@ -25,12 +25,12 @@
     <dependencies>
         <dependency>
             <groupId>org.keithkim</groupId>
-            <artifactId>safeql</artifactId>
+            <artifactId>typestrql</artifactId>
             <version>0.2-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.keithkim</groupId>
-            <artifactId>safeql-annotation</artifactId>
+            <artifactId>typestrql-annotation</artifactId>
             <version>0.2-SNAPSHOT</version>
         </dependency>
         <dependency>
@@ -77,7 +77,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>org.keithkim.safeql.sample.Demo</mainClass>
+                            <mainClass>org.keithkim.typestrql.sample.Demo</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
