@@ -1,17 +1,17 @@
-package org.keithkim.safeql.sample;
+package org.keithkim.typestrql.sample;
 
 import org.jdbi.v3.core.mapper.JoinRow;
 import org.jdbi.v3.core.mapper.JoinRowMapper;
-import org.keithkim.safeql.sample.projects.Account;
-import org.keithkim.safeql.sample.projects.Accounts0;
-import org.keithkim.safeql.sample.projects.Project;
-import org.keithkim.safeql.sample.projects.Projects0;
+import org.keithkim.typestrql.sample.projects.Account;
+import org.keithkim.typestrql.sample.projects.Accounts0;
+import org.keithkim.typestrql.sample.projects.Project;
+import org.keithkim.typestrql.sample.projects.Projects0;
 import org.keithkim.moja.monad.Async;
 import org.keithkim.moja.monad.Multi;
-import org.keithkim.safeql.query.Join;
-import org.keithkim.safeql.statement.Database;
-import org.keithkim.safeql.statement.TableDbRegistry;
-import org.keithkim.safeql.statement.RawQueryStatement;
+import org.keithkim.typestrql.query.Join;
+import org.keithkim.typestrql.statement.Database;
+import org.keithkim.typestrql.statement.TableDbRegistry;
+import org.keithkim.typestrql.statement.RawQueryStatement;
 
 import java.util.List;
 

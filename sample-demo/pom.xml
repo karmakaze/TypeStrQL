@@ -15,8 +15,8 @@
     </parent>
 
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <jdbi3-version>3.22.0</jdbi3-version>
@@ -36,7 +36,7 @@
         <dependency>
             <groupId>org.keithkim</groupId>
             <artifactId>moja</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>0.2-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.jdbi</groupId>
@@ -65,7 +65,16 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>3.9.0</version>
+                <configuration>
+                    <annotationPaths>
+                        <path>
+                            <groupId>org.keithkim</groupId>
+                            <artifactId>typestrql-annotation</artifactId>
+                            <version>0.2-SNAPSHOT</version>
+                        </path>
+                    </annotationPaths>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

@@ -1,12 +1,12 @@
-package org.keithkim.safeql.sample.projects;
+package org.keithkim.typestrql.sample.projects;
 
-import org.keithkim.safeql.annotation.Column;
-import org.keithkim.safeql.annotation.Table;
+import org.keithkim.typestrql.annotation.Column;
+import org.keithkim.typestrql.annotation.Table;
 
 import java.time.Instant;
 
-import static org.keithkim.safeql.annotation.ColumnOption.ALLOW_NULL;
-import static org.keithkim.safeql.annotation.ColumnOption.PRIMARY_KEY;
+import static org.keithkim.typestrql.annotation.ColumnOption.ALLOW_NULL;
+import static org.keithkim.typestrql.annotation.ColumnOption.PRIMARY_KEY;
 
 @Table
 public abstract class ProjectTable {

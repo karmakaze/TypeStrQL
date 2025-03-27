@@ -1,6 +1,6 @@
-package org.keithkim.safeql.sample.projects;
+package org.keithkim.typestrql.sample.projects;
 
-import org.keithkim.safeql.statement.TableDbRegistry;
+import org.keithkim.typestrql.statement.TableDbRegistry;
 
 import java.util.*;
 

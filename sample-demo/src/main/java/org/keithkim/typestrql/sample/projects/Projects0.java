@@ -1,12 +1,12 @@
-package org.keithkim.safeql.sample.projects;
+package org.keithkim.typestrql.sample.projects;
 
-import org.keithkim.safeql.expression.Expr;
-import org.keithkim.safeql.expression.SqlSet;
-import org.keithkim.safeql.predicate.Predicate;
-import org.keithkim.safeql.predicate.Predicates;
-import org.keithkim.safeql.schema.Entities;
-import org.keithkim.safeql.schema.Table;
-import org.keithkim.safeql.type.SetExpr;
+import org.keithkim.typestrql.expression.Expr;
+import org.keithkim.typestrql.expression.SqlSet;
+import org.keithkim.typestrql.predicate.Predicate;
+import org.keithkim.typestrql.predicate.Predicates;
+import org.keithkim.typestrql.schema.Entities;
+import org.keithkim.typestrql.schema.Table;
+import org.keithkim.typestrql.type.SetExpr;
 
 import java.util.*;
 
