@@ -1,8 +1,8 @@
-## Why was SafeQL created?
+## Why was TypeStrQL created?
 
-SafeQL arose from the dissatisfaction in the limitations of existing ORM frameworks and query builder libraries. Often what works well in the beginning falls aport at scale. Painful examples of this are non-obvious N+1 queries that creep in and garbage collection pressure that eats memory and kills performance. Avoiding N+1 queries while simultaneously controlling eager/lazy loading is challenging and inefficient at best. Other frameworks are good at making simple things easier. They don't handle complex cases where it would be most beneficial and requires error-prone manual work.
+TypeStrQL arose from the dissatisfaction in the limitations of existing ORM frameworks and query builder libraries. Often what works well in the beginning falls apart at scale. Painful examples of this are non-obvious N+1 queries that creep in and garbage collection pressure that eats memory and kills performance. Avoiding N+1 queries while simultaneously controlling eager/lazy loading is challenging and inefficient at best. Other frameworks are good at making simple things easier. They don't handle complex cases where it would be most beneficial and requires error-prone manual work.
 
-SafeQL is the encapsulation of doing these complex and all-too-common things in a developer friendly and operationally safe way.
+TypeStrQL is the encapsulation of doing these complex and all-too-common things in a developer friendly and operationally safe way.
 
 ## Features
 
@@ -12,29 +12,24 @@ SafeQL is the encapsulation of doing these complex and all-too-common things in 
 * Batch-load multiple relations
 * No N+1 queries
 * Type-safe
-* Mix expression and SQL
 * Protect against SQL injection
-* Easy JOINs (foreign-keyed and ad-hoc)
 * Define in code or generate from existing schema sources
-* Rich (e.g. CTEs)
-* Handles IN (&lt;empty&gt;) / NOT IN (&lt;empty&gt;)
 
-## How does SafeQL work?
+## How does TypeStrQL work?
 
-SafeQL combines several capabilities together to make great the default. Here they are from the highest level to the underlying building blocks:
+TypeStrQL combines several capabilities together to make great the default. Here they are from the highest level to the underlying building blocks:
 
+* raw SQL queries as typed expressions
 * functional composition of asynchronous results
 * asynchronous batch querying of entities and relationships
-* type-safe query composition
-* raw queries as typed expressions
 * safe SQL statements generated from expressions
 * composable templates with smart parameter binding
 * code generator from schema sources
 
 ## Shut up and show me the code already
 
-* browse [source packages](https://github.com/karmakaze/safeql/tree/master/src/main/java/org/keithkim/safeql)
-* browse [test packages](https://github.com/karmakaze/safeql/tree/master/src/test/java/org/keithkim/safeql)
+* browse [source packages](https://github.com/karmakaze/TypeStrQL/tree/master/src/main/java/org/keithkim/typestrql)
+* browse [test packages](https://github.com/karmakaze/TypeStrQL/tree/master/src/test/java/org/keithkim/typestrql)
 
 ### Querying a single table
 
@@ -45,11 +40,11 @@ Accounts accounts = Accounts.where("id > :min_id", mapOf("min_id", 1000)).get();
 
 Projects projects = accounts.loadProjects("updated_at >= ?", Instant.now().minusDays(30)).get();
 ```
-The `Accounts` and `Projects` types are subclasses of List<Account> and List<Project> with additional methods.
+The `Accounts` and `Projects` types are subclasses of List&lt;Account&gt; and List&lt;Project&gt; with additional methods.
 
 The `projects` returned value of `loadProjects` can be discarded as each account in `accounts` aleady has its projects associated upon loading.
 
-What with all the `get()` calls? Queries return async futures which can be funtionally chained. Calling `get()` or `join()` synchronously waits for the result.
+What with all the `get()` calls? Queries return async futures which can be functionally chained. Calling `get()` or `join()` synchronously waits for the result.
 
 ### Functional composition
 
